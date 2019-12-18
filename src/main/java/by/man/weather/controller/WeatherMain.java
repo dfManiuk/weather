@@ -33,7 +33,6 @@ public class WeatherMain  {
 		}
 		
 		mongoRep.save(jsonToPojo(weatherDataString));		
-		jsonToPojo(weatherDataString);
 		}
 	}
 	
