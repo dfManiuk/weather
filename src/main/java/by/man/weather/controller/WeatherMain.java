@@ -16,7 +16,7 @@ public class WeatherMain  {
 	private WeatherService weatherService;
 	
 	@Autowired
-	public WeatherMain(WeatherService service, MongoRepository mgr) {
+	public void setWeatherMain(WeatherService service, MongoRepository mgr) {
 		this.weatherService = service;
 		this.mongoRep = mgr;
 		WeatherDataRecive();
