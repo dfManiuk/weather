@@ -23,8 +23,8 @@ public class WeatherService {
 	
 	 private static final Logger logger = LogManager.getLogger(WeatherService.class);
 	
-	@Value("${schedule.cron}")
-	private String time;
+//	@Value("${schedule.cron}")
+//	private String time;
 	
 	private WeatherConnection connection;
 	
@@ -53,19 +53,21 @@ public class WeatherService {
 		String weatherString = "";
 		
 		
-		CronExpression cron;
-		try {
-			cron = new CronExpression(time);
-		} catch (ParseException e1) {
-			logger.debug("Not to parse the time cron expression. StackTrace: " + e1);
-			throw new ServiceExeption("Not to parse the time cron",e1);
-		}
-		Date firstExecution = cron.getNextValidTimeAfter(new Date(System.currentTimeMillis()));
-		Date secondExecution = cron.getNextValidTimeAfter(firstExecution);
-		Long sleep = secondExecution.getTime() - firstExecution.getTime();
+//		CronExpression cron;
+//		try {
+//			cron = new CronExpression(time);
+//		} catch (ParseException e1) {
+//			logger.debug("Not to parse the time cron expression. StackTrace: " + e1);
+//			throw new ServiceExeption("Not to parse the time cron",e1);
+//		}
+//		Date firstExecution = cron.getNextValidTimeAfter(new Date(System.currentTimeMillis()));
+//		Date secondExecution = cron.getNextValidTimeAfter(firstExecution);
+//		Long sleep = secondExecution.getTime() - firstExecution.getTime();
+//		
+//		logger.info("Sleep time is: " + sleep + "mls");
 		
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(nThreads);
-		final  ScheduledFuture<String> future  = executor.schedule(new WeatherCallable(connection), sleep, TimeUnit.MILLISECONDS);
+		final  ScheduledFuture<String> future  = executor.schedule(new WeatherCallable(connection), 1, TimeUnit.MILLISECONDS);
 		try {
 			weatherString = future.get();
 		} catch (InterruptedException e) {

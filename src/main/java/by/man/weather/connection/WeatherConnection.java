@@ -31,7 +31,7 @@ public class WeatherConnection {
     
     /**
      * This method connects to the openWeather server, receives information about weather using the {@link readInputStream (HttpURLConnection con)}
-     * as a json string
+     * as a JSON string
      * 
      *@return JSON string
      *@throws  WeatherConnectionException

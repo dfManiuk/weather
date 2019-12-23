@@ -59,13 +59,17 @@
 			<artifactId>json</artifactId>
 			<version>20190722</version>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-web</artifactId>
-    <version>5.2.1.RELEASE</version><!--$NO-MVN-MAN-VER$-->
-</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.2.1.RELEASE</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+<!-- 	<dependency>
+    <groupId>de.flapdoodle.embed</groupId>
+    <artifactId>de.flapdoodle.embed.mongo</artifactId>
+    <scope>test</scope>
+</dependency>  -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -82,7 +86,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			 <plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
@@ -94,29 +98,21 @@
 					<password>not_real_pass</password>
 					<ignorePackaging>true</ignorePackaging>
 				</configuration>
-			</plugin> 
-			<!-- <plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<server>TomcatServer</server>
-					<path>/weather</path>
-					<username>dima</username>
-					<password>not_real_pass</password>
-					<ignorePackaging>true</ignorePackaging>
-				</configuration>
 			</plugin> -->
+			<plugin> <groupId>org.apache.tomcat.maven</groupId> <artifactId>tomcat7-maven-plugin</artifactId> 
+				<version>2.2</version> <configuration> <url>http://localhost:8080/manager/text</url> 
+				<server>TomcatServer</server> <path>/weather</path> <username>dima</username> 
+				<password>not_real_pass</password> <ignorePackaging>true</ignorePackaging> 
+				</configuration> </plugin> 
 		</plugins>
 		<resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <excludes>
-         <exclude>**/*.png</exclude>
-        </excludes>
-      </resource>
-    </resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.png</exclude>
+				</excludes>
+			</resource>
+		</resources>
 	</build>
 
 </project>
